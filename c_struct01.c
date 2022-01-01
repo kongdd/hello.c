@@ -35,6 +35,7 @@ Leaf leaf_mul(Leaf x, Leaf y) {
 int main() {
     // printf() displays the string inside quotation
     printf("Hello, World!");
+    double z[5] = {};
     Leaf temp = Leaf_default;
     Leaf x = LEAF(.x = 1, .y = 2);                       // no id initialization
     Leaf y = LEAF(.x = 2, .y = 4);                 // no name initialization
