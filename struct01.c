@@ -13,8 +13,14 @@ typedef struct Leaf_s Leaf;
 
 #define LEAF(...) ((Leaf){.x = 0, .y = 0, ##__VA_ARGS__})
 
+// void init_leaf_struct(Leaf x[], Leaf replacement[]);
+// void init_leaf_struct2(Leaf *x, Leaf *replacement); // equal to the above
+void init_leaf_struct(Leaf x[], Leaf replacement[]) {
+    x->x = replacement->x;
+    x->y = replacement->y;
+}
 
-void init_leaf_struct(Leaf *x, Leaf *replacement) {
+void init_leaf_struct2(Leaf *x, Leaf *replacement) {
     x->x = replacement->x;
     x->y = replacement->y;
 }
