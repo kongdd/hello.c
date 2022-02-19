@@ -3,10 +3,12 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            // "command": "/usr/bin/g++",
+            "command": "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always", 
                 "-std=c++17",
+                "-Iinclude",
                 "-g",
                 "${file}",
                 "-o",
@@ -14,7 +16,7 @@
                 // "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
