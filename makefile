@@ -19,7 +19,7 @@ OBJS=$(patsubst %.cpp,$(ODIR)/%.exe, $(sources_cpp))
 
 # OBJS = $(patsubst %,$(ODIR)/%, $(_OBJS))
 
-main: $(OBJS) makedir
+main: makedir $(OBJS)
 
 # main: $(OBJS) 
 # build/LAB1.exe

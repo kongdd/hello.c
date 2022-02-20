@@ -7,7 +7,6 @@
 
 void InitQueue(Queue *p);
 int IsEmpty(Queue *p);
-int IsRight(int *i, int *j);
 void AddRear(Queue *p, int x);
 int DelFront(Queue *p);
 int GetFront(Queue *p, int *y);
