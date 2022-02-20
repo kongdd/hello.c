@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "leaf.hpp"
+#include "leaf_low.hpp"
 
 /**
  * @references
@@ -45,7 +45,7 @@ int main() {
     x.show();
     // x = leaf_mul(x, y);
     // init_leaf(x, y);
-    // init_leaf(&x, &y);
-    init_leaf(x, y);
+    // init_leaf(&x, &y); // init_leaf(Leaf *x, Leaf *replacement)
+    init_leaf(x, y);  // init_leaf(Leaf &x, Leaf &replacement)
     return 0;
 }

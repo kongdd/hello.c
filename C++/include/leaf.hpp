@@ -4,6 +4,32 @@
 
 using namespace std;
 
+//  OVERLOAD OPERATOR ------------------------------------------------------
+template <class T, class U>
+auto operator+(const T &A, const U &B) {
+    return apply(A, B, [](double a, double b) { return a + b; });
+}
+
+template <class T, class U>
+auto operator-(const T &A, const U &B) {
+    return apply(A, B, [](double a, double b) { return a - b; });
+}
+
+template <class T, class U>
+auto operator*(const T &A, const U &B) {
+    return apply(A, B, [](double a, double b) { return a * b; });
+}
+
+template <class T, class U>
+auto operator/(const T &A, const U &B) {
+    return apply(A, B, [](double a, double b) { return a / b; });
+}
+
+template <class T>
+auto operator-(const T &A) {
+    return apply(0, A, [](double a, double b) { return a - b; });
+}
+
 typedef struct Leaf {
     double o_sunlit = 0;
     double o_shaded = 0;
@@ -77,28 +103,22 @@ void show(const Layer &l, std::string prefix = "") {
 template <class F>
 Leaf apply(const Leaf &A, const Leaf &B, F f){
     return Leaf(
-        f(A.o_sunlit, B.o_sunlit), 
-        f(A.o_shaded, B.o_shaded), 
-        f(A.u_sunlit, B.u_sunlit),
-        f(A.u_shaded, B.u_shaded));
+        f(A.o_sunlit, B.o_sunlit), f(A.o_shaded, B.o_shaded), 
+        f(A.u_sunlit, B.u_sunlit), f(A.u_shaded, B.u_shaded));
 }
 
 template <class F>
 Leaf apply(const Leaf &A, const double B, F f){
     return Leaf(
-        f(A.o_sunlit, B), 
-        f(A.o_shaded, B), 
-        f(A.u_sunlit, B),
-        f(A.u_shaded, B));
+        f(A.o_sunlit, B), f(A.o_shaded, B), 
+        f(A.u_sunlit, B), f(A.u_shaded, B));
 }
 
 template <class F>
 Leaf apply(const double A, const Leaf &B, F f){
     return Leaf(
-        f(A, B.o_sunlit), 
-        f(A, B.o_shaded), 
-        f(A, B.u_sunlit),
-        f(A, B.u_shaded));
+        f(A, B.o_sunlit), f(A, B.o_shaded), 
+        f(A, B.u_sunlit), f(A, B.u_shaded));
 }
 // template <class F>
 // Leaf apply(const Layer &A, F f){
@@ -119,31 +139,4 @@ Layer apply(const Layer &A, const double B, F f){
 template <class F>
 Layer apply(const double A, const Layer &B, F f){
     return Layer(f(A, B.o), f(A, B.u), f(A, B.g));
-}
-
-
-//  OVERLOAD OPERATOR ------------------------------------------------------
-template <class T, class U>
-auto operator+(const T &A, const U &B){
-    return apply(A, B, [](double a, double b) { return a + b; });
-}
-
-template <class T, class U>
-auto operator-(const T &A, const U &B){
-    return apply(A, B, [](double a, double b) { return a - b; });
-}
-
-template <class T, class U>
-auto operator*(const T &A, const U &B){
-    return apply(A, B, [](double a, double b) { return a * b; });
-}
-
-template <class T, class U>
-auto operator/(const T &A, const U &B){
-    return apply(A, B, [](double a, double b) { return a / b; });
-}
-
-template <class T>
-auto operator-(const T &A){
-    return apply(0, A, [](double a, double b) { return a - b; });
 }

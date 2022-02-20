@@ -2,3 +2,6 @@
 *.dll
 *.exe
 *.o
+
+build/
+settings.json

@@ -2,21 +2,18 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++ build active file",
-            // "command": "/usr/bin/g++",
+            "label": "C/C++: gcc build active file",
             "command": "/usr/bin/gcc",
             "args": [
-                "-fdiagnostics-color=always", 
-                "-std=c++17",
-                "-Iinclude",
+                "-fdiagnostics-color=always",
                 "-g",
+                "-Iinclude -Iinclude/algorithm",
                 "${file}",
                 "-o",
-                "main.exe"
-                // "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${fileDirname}"
             },
             "problemMatcher": [
                 "$gcc"
