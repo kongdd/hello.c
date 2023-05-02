@@ -7,11 +7,11 @@ typedef double real;
  * @references
  * 1. https://stackoverflow.com/questions/11656532/returning-an-array-using-c
  */
-real *foo(int count) {
-    real *ret = malloc(count);
+real* foo(int count) {
+    real* ret = malloc(count);
     // if(!ret)
     //     return NULL;
-    // for(int i = 0; i < count; ++i) 
+    // for(int i = 0; i < count; ++i)
     //     ret[i] = i;
     return ret;
 }
@@ -46,12 +46,12 @@ int main() {
     show(x, n, prefix);
     show2(x, n);
 
-    real *p = foo(5);
+    real* p = foo(5);
     // show(p, n);
     init(p, n);
     show2(p, n);
-    
-    if(p) {
+
+    if (p) {
         free(p);
     }
     return 0;

@@ -25,8 +25,7 @@ Leaf Leaf_default = {0, 0};
 
 // void init_leaf_struct(Leaf x[], Leaf replacement[]);
 // void init_leaf_struct2(Leaf *x, Leaf *replacement); // equal to the above
-void
-init_leaf_struct(Leaf x[], Leaf replacement[]) {
+void init_leaf_struct(Leaf x[], Leaf replacement[]) {
     x->x = replacement->x;
     x->y = replacement->y;
 }
@@ -35,6 +34,7 @@ void init_leaf_struct2(Leaf *x, Leaf *replacement) {
     x->x = replacement->x;
     x->y = replacement->y;
 }
+// 两种方法是等价的，调用方式完全一样
 
 /** Note that C has no that style */
 // void init_leaf_struct_v3(Leaf *x, Leaf &replacement) {

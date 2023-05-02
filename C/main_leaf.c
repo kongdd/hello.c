@@ -12,5 +12,7 @@ int main() {
     x = leaf_mul(x, y);
     // init_leaf_struct(x, y);
     init_leaf_struct(&x, &y);
+    init_leaf_struct2(&x, &y);
+
     return 0;
 }
